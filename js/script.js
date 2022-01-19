@@ -26,6 +26,12 @@ studentElement.innerText = text */
 
 //! 3-4-5
 
+const nameElement = document.getElementById("name");
+const surnameElement = document.getElementById("surname");
+const ageElement = document.getElementById("age");
+
+const buttonElement = document.getElementById("button");
+
 const students = [
     { nome: "Matteo", cognome: "Imbimbo", eta: "25" },
     { nome: "Antonio", cognome: "Nicodemo", eta: "25" },
@@ -33,30 +39,45 @@ const students = [
 
 ];
 
-const userChoiceName = prompt("Inserisci il nome studente", "Marco").trim();
+//! metodo prompt
+/* const userChoiceName = prompt("Inserisci il nome studente", "Marco").trim();
 const userChoiceSurname = prompt("Inserisci il cognome studente", "Leali").trim();
 const userChoiceAge = prompt("Inserisci l'età studente", "29").trim();
 
 const userChoice = { nome: userChoiceName, cognome: userChoiceSurname, eta: userChoiceAge };
 
-students.push(userChoice)
+students.push(userChoice)*/
 
-console.log(students)
+function objectLoop() {
+    let studentsText = "";
+    for (let i = 0; i < students.length; i++) {
+        const currentStudent = students[i]
 
-
-/* console.table(students) */
-let studentsText = "";
-
-for (let i = 0; i < students.length; i++) {
-    const currentStudent = students[i]
-
-    for (let key in currentStudent) {
-        let currentObject = currentStudent[key];
-        if (currentObject != currentStudent.eta) {
-            studentsText = studentsText + ' ' + currentObject;
+        for (let key in currentStudent) {
+            let currentObject = currentStudent[key];
+            if (currentObject != currentStudent.eta) {
+                studentsText = studentsText + ' ' + currentObject;
+            }
         }
     }
+    studentElement.innerText = studentsText;
 }
 
-studentElement.innerText = studentsText;
+objectLoop();
+
+buttonElement.addEventListener('click', function () {
+    buttonElement.disabled = true;
+
+    const nameElementValue = nameElement.value;
+    const surnameElementValue = surnameElement.value;
+    const ageElementValue = ageElement.value;
+
+    const userChoice = { nome: nameElementValue, cognome: surnameElementValue, eta: ageElementValue };
+
+    students.push(userChoice);
+
+    objectLoop()
+
+
+})
 
