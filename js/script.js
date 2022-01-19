@@ -73,11 +73,8 @@ buttonElement.addEventListener('click', function () {
     const ageElementValue = ageElement.value;
 
     const userChoice = { nome: nameElementValue, cognome: surnameElementValue, eta: ageElementValue };
-
     students.push(userChoice);
 
     objectLoop()
-
-
 })
 
