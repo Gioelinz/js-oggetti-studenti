@@ -5,3 +5,18 @@
 5. Dare la possibilità all’utente, attraverso 3 prompt(), di aggiungere all’array creato in precedenza, un nuovo oggetto studente inserendo nell’ ordine: nome, cognome e età.
 BONUS:
 Usiamo il DOM per stampare e chiedere le informazioni all'utente! */
+
+const studentElement = document.getElementById("student-display");
+
+const student = { nome: "Gioele", cognome: "Runza", eta: 22 };
+
+console.log(student)
+
+/* studentElement.innerText = `Nome: ${student.nome} Cognome: ${student.cognome} Età: ${student.eta}` */
+let text = '';
+
+for (let key in student) {
+    text = text + ' ' + student[key];
+}
+
+studentElement.innerText = text
