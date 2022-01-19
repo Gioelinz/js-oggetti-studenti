@@ -42,7 +42,10 @@ for (let i = 0; i < students.length; i++) {
 
     for (let key in currentStudent) {
         let currentObject = currentStudent[key];
-        studentsText = studentsText + ' ' + currentObject;
+        if (currentObject != currentStudent.eta) {
+            studentsText = studentsText + ' ' + currentObject;
+            console.log(studentsText)
+        }
     }
 }
 
