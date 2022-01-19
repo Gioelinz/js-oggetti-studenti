@@ -8,15 +8,42 @@ Usiamo il DOM per stampare e chiedere le informazioni all'utente! */
 
 const studentElement = document.getElementById("student-display");
 
+//! 1 e 2
+
+/*
 const student = { nome: "Gioele", cognome: "Runza", eta: 22 };
 
 console.log(student)
 
-/* studentElement.innerText = `Nome: ${student.nome} Cognome: ${student.cognome} Età: ${student.eta}` */
+// studentElement.innerText = `Nome: ${student.nome} Cognome: ${student.cognome} Età: ${student.eta}`
 let text = '';
 
 for (let key in student) {
     text = text + ' ' + student[key];
 }
 
-studentElement.innerText = text
+studentElement.innerText = text */
+
+//! 3-4-5
+
+const students = [
+    { nome: "Matteo", cognome: "Imbimbo", eta: "25" },
+    { nome: "Antonio", cognome: "Nicodemo", eta: "25" },
+    { nome: "Pietro", cognome: "Scandola", eta: "25" },
+
+];
+
+/* console.table(students) */
+let studentsText = "";
+
+for (let i = 0; i < students.length; i++) {
+    const currentStudent = students[i]
+    console.log(currentStudent)
+
+    for (let key in currentStudent) {
+        let currentObject = currentStudent[key];
+        studentsText = studentsText + ' ' + currentObject;
+    }
+}
+
+studentElement.innerText = studentsText;
