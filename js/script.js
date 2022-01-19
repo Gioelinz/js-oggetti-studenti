@@ -38,15 +38,23 @@ let studentsText = "";
 
 for (let i = 0; i < students.length; i++) {
     const currentStudent = students[i]
-    console.log(currentStudent)
 
     for (let key in currentStudent) {
         let currentObject = currentStudent[key];
         if (currentObject != currentStudent.eta) {
             studentsText = studentsText + ' ' + currentObject;
-            console.log(studentsText)
         }
     }
 }
 
 studentElement.innerText = studentsText;
+
+const userChoiceName = prompt("Inserisci il nome studente", "Marco").trim();
+const userChoiceSurname = prompt("Inserisci il cognome studente", "Leali").trim();
+const userChoiceAge = prompt("Inserisci l'età studente", "29").trim();
+
+const userChoice = { nome: userChoiceName, cognome: userChoiceSurname, eta: userChoiceAge };
+
+students.push(userChoice)
+
+console.log(students)
